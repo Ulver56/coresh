@@ -51,6 +51,7 @@ jobs:
             python3 -m venv env;
             source env/bin/activate;
             pip3 install -r requirements.txt;
+            python3 grand_core_bot.py;
 
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
