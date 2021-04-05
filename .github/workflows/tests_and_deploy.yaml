@@ -26,9 +26,8 @@ jobs:
         run: editorconfig-checker *
 
       - name: Deploy to Server
-        run:
-          mkdir ~/.ssh;
+        run: mkdir ~/.ssh;
           cd ~/.ssh;
           echo "${{ secrets.SERVER_SSH_KEY }}" > id_rsa;
 
-          #ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }};
+          ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }};
