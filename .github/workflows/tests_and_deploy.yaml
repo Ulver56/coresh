@@ -24,7 +24,7 @@ jobs:
       - name: Run tests
         run: editorconfig-checker *
 
-        uses: garygrossgarten/github-action-scp@release
+      - uses: garygrossgarten/github-action-scp@release
         with:
           local: src
           remote: var/www
