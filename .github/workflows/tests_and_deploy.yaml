@@ -13,17 +13,14 @@ jobs:
       # Чекаутим код
       - name: Check Out Repo
       - uses: actions/checkout@master
-
       # Устанавливаем python нужной версии
       - uses: actions/setup-python@v1
         with:
           python-version: "3.8"
           architecture: "x64"
-
       # Устанавливаем зависимости
       - name: Install requirements
         run: pip install -r requirements.txt
-
       # Прогоняем тесты
       - name: Run tests
         run: echo 1
