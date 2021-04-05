@@ -20,7 +20,7 @@ jobs:
 
       - name: Install packeges
         run: pip install editorconfig-checker;
-          sudo apt-get install sshfs;
+          sudo apt-get install ssh;
 
       - name: Run tests
         run: editorconfig-checker *
@@ -29,4 +29,4 @@ jobs:
         run: mkdir ~/.ssh;
           cd ~/.ssh;
           echo "${{ secrets.SERVER_SSH_KEY }}" > id_rsa;
-          sshfs -ononempty ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:src /var/www
+          scp -r src ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/var/www
