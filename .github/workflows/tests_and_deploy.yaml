@@ -28,3 +28,5 @@ jobs:
         uses: webfactory/ssh-agent@v0.5.1
         with:
           ssh-private-key: ${{ secrets.SERVER_SSH_KEY }}
+      - name: Test SSH
+        run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}
