@@ -42,6 +42,10 @@ jobs:
             cd /var/www;
             #python3 -m venv env;
 
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          password: ${{ secrets.REMOTE_PWD }}
+
       - name: Scriptos por Remote Server 2
         uses: garygrossgarten/github-action-ssh@release
         with:
