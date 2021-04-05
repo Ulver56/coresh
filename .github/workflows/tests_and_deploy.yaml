@@ -6,12 +6,24 @@ on:
       - "*"
     branches:
       - "*"
+
 jobs:
-  test-job:
-    runs-on: ubuntu-16.04
+  run_tests:
+    runs-on: "ubuntu-latest"
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        name: "setup node"
+      # Чекаутим код
+      - name: Check Out Repo
+      - uses: actions/checkout@master
+
+      # Устанавливаем python нужной версии
+      - uses: actions/setup-python@v1
         with:
-          node-version: "13.x"
+          python-version: "3.8"
+          architecture: "x64"
+
+      # Устанавливаем зависимости
+      - name: Install requirements
+      - run: pip install -r requirements.txt
+      # Прогоняем тесты
+      - name: Run tests
+      - run: echo 1
