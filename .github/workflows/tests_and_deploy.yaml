@@ -42,7 +42,7 @@ jobs:
             pip3 install -r requirements.txt;
             cd src;
             ls;
-            python3 src/grand_core_bot.py&
+            python3 grand_core_bot.py&
 
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
