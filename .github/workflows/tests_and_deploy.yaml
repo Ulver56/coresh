@@ -13,7 +13,8 @@ jobs:
     steps:
       - name: Check Out Repo
         uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        name: "setup node"
+      - name: Install Python
+        uses: actions/setup-python@v1
         with:
-          node-version: "13.x"
+          python-version: "3.8"
+          architecture: "x64"
