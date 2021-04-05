@@ -24,14 +24,7 @@ jobs:
 
       - name: Run tests
         run: editorconfig-checker *
-
-      - name: add SSH key
-        run: mkdir ~/.ssh;
-          cd  ~/.ssh;
-          echo "${{ secrets.SERVER_SSH_KEY }}"
-
-      - name: SSH git pull
-        run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}
-
-      - name: SSH test-test
-        run: touch a.txt
+      - name: SSH
+        uses: webfactory/ssh-agent@v0.5.1
+        with:
+          ssh-private-key: ${{ secrets.SERVER_SSH_KEY }}
