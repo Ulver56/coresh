@@ -14,7 +14,7 @@ jobs:
       - name: Check Out Repo
         uses: actions/checkout@v2
       - name: editorconfig
-        uses: zbeekman/EditorConfig-Action[@ref]
+        uses: zbeekman/EditorConfig-Action@v1
       - name: Install Python
         uses: actions/setup-python@v1
         with:
