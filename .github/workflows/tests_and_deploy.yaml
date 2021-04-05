@@ -13,15 +13,13 @@ jobs:
     steps:
       - name: Check Out Repo
         uses: actions/checkout@v2
-      - name: editorconfig
-        uses: zbeekman/EditorConfig-Action@v1.1.1
       - name: Install Python
         uses: actions/setup-python@v1
         with:
           python-version: "3.8"
           architecture: "x64"
-      - name: Install requirements
-        run: pip install -r requirements.txt
+      - name: Pip Install
+        run: pip install editorconfig-checker
       - name: Run tests
         run: echo "Здесь будут тесты"
       - name: Login to Docker Hub
