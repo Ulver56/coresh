@@ -21,4 +21,4 @@ jobs:
       - name: Install requirements
         run: pip install -r requirements.txt
       - name: Run tests
-        run: echo 1; ls;
+        run: touch a.txt
