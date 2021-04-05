@@ -24,10 +24,8 @@ jobs:
       - name: Run tests
         run: editorconfig-checker *
 
-      - uses: garygrossgarten/github-action-scp@release
-        with:
-          local: ./
-          remote: /var/www
-          host: ${{ secrets.REMOTE_HOST }}
-          username: ${{ secrets.REMOTE_USER }}
-          password: ${{ secrets.REMOTE_PWD }}
+      - name: SSH git pull
+        run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}
+
+      - name: SSH test-test
+        run: touch a.txt
