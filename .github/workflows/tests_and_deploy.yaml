@@ -18,8 +18,9 @@ jobs:
           python-version: "3.8"
           architecture: "x64"
 
-      - name: Pip Install
-        run: pip install editorconfig-checker
+      - name: Install packeges
+        run: pip install editorconfig-checker;
+          apt install ssh;
 
       - name: Run tests
         run: editorconfig-checker *
