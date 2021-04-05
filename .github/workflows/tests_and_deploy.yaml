@@ -38,9 +38,8 @@ jobs:
       - name: Scriptos por Remote Server
         uses: garygrossgarten/github-action-ssh@release
         with:
-          command:
-            cd /var/www;
-            #python3 -m venv env;
+          command: cd /var/www;
+            python3 -m venv env;
 
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
