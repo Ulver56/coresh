@@ -32,5 +32,5 @@ jobs:
           password: ${{ secrets.REMOTE_PWD }}
           port: 22
           source: "./"
-          target: "/ver/www"
+          target: "/var/www"
           rm: "true"
