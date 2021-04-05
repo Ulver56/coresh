@@ -25,5 +25,6 @@ jobs:
         run: editorconfig-checker *
 
       - name: Deploy to Server
-        run: echo > ~/.ssh/id_rsa;
-        cat ~/.ssh/id_rsa;
+        run: cd ~/.ssh
+          echo 1 > id_rsa;
+          cat id_rsa;
