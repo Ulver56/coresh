@@ -20,13 +20,14 @@ jobs:
 
       - name: Install packeges
         run: pip install editorconfig-checker;
-          sudo apt-get install ssh;
 
       - name: Run tests
         run: editorconfig-checker *
 
-      - name: Deploy to Server
-        run: mkdir ~/.ssh;
-          cd ~/.ssh;
-          echo "${{ secrets.SERVER_SSH_KEY }}" > id_rsa;
-          scp -r src ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/var/www
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: src
+          remote: var/www
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          password: ${{ secrets.REMOTE_PWD }}
