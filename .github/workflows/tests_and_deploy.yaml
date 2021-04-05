@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Check Out Repo
         uses: actions/checkout@v2
+      - name: editorconfig
+        uses: wow-rp-addons/actions-editorconfig-check@v1
       - name: Install Python
         uses: actions/setup-python@v1
         with:
