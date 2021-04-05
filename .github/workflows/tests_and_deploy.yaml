@@ -24,15 +24,6 @@ jobs:
       - name: Run tests
         run: editorconfig-checker *
 
-      - name: Stop Scripts in Remote Server
-        uses: garygrossgarten/github-action-ssh@release
-        with:
-          command: pkill grand_core_bot.py;
-
-          host: ${{ secrets.REMOTE_HOST }}
-          username: ${{ secrets.REMOTE_USER }}
-          password: ${{ secrets.REMOTE_PWD }}
-
       - name: Deploy
         uses: appleboy/scp-action@master
         with:
