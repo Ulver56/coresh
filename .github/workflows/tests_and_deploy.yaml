@@ -35,10 +35,10 @@ jobs:
           target: "/var/www"
           rm: "true"
 
-      - name: Install Env
-        run: python3 -m venv env;
-          source env/bin/activate;
-          pip3 install -r requirements.txt
-
-      - name: Start
-        run: python3 src/grand_core_bot.py;
+      - name: ls -a via ssh
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: touch aaa
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          password: ${{ secrets.REMOTE_PWD }}
