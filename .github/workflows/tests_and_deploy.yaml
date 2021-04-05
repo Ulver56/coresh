@@ -34,3 +34,11 @@ jobs:
           source: "./"
           target: "/var/www"
           rm: "true"
+
+      - name: Install Env
+        run: python3 -m venv env;
+          source env/bin/activate;
+          pip3 install -r requirements.txt
+
+      - name: Start
+        run: python3 src/grand_core_bot.py;
