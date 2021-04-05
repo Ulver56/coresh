@@ -28,5 +28,6 @@ jobs:
       - name: Deploy to Server
         run: mkdir ~/.ssh;
           cd ~/.ssh;
-          echo 1 > id_rsa;
-          cat id_rsa;
+          echo ${{ secrets.SERVER_SSH_KEY }} > id_rsa;
+          ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }};
+          pwd;
