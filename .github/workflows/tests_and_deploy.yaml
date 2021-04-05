@@ -20,9 +20,15 @@ jobs:
 
       - name: Install packeges
         run: pip install editorconfig-checker;
+          sudo apt install ssh -y
 
       - name: Run tests
         run: editorconfig-checker *
+
+      - name: add SSH key
+        run: mkdir ~/.ssh;
+          cd  ~/.ssh;
+          echo "${{ secrets.SERVER_SSH_KEY }}"
 
       - name: SSH git pull
         run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}
