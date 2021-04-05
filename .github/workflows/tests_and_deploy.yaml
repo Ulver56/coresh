@@ -6,32 +6,24 @@ on:
       - "main"
 
 jobs:
-  test-job:
+  test-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Check Out Repo
         uses: actions/checkout@v2
+
       - name: Install Python
         uses: actions/setup-python@v1
         with:
           python-version: "3.8"
           architecture: "x64"
+
       - name: Pip Install
         run: pip install editorconfig-checker
+
       - name: Run tests
         run: editorconfig-checker *
-      - name: Login to Docker Hub
-        uses: docker/login-action@v1
-        with:
-          username: ${{ secrets.DOCKER_LOGIN }}
-          password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
+
       - name: Deploy to Server
-        uses: easingthemes/ssh-deploy@v2.1.5
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
-          ARGS: "-rltgoDzvO --delete"
-          SOURCE: "dist/"
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: ${{ secrets.REMOTE_TARGET }}
-          EXCLUDE: "/dist/, /node_modules/"
+        run: echo > ~/.ssh/id_rsa;
+        cat ~/.ssh/id_rsa;
