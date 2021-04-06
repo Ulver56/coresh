@@ -43,8 +43,8 @@ jobs:
             source env/bin/activate;
             pip3 install -r requirements.txt;
             cd src;
-            ls;
-            python3 grand_core_bot.py&
+            mv settings.py.exemple settings.py
+            python3 main.py&
 
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
