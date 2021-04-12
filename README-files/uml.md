@@ -108,11 +108,12 @@ package "БД" {
     entity "tags" {
   ' id тега
     id : int
+  ' группа тегов
+    tag_group : int
     --
   ' название тега         
     name : json
-  ' группа тегов
-    tag_group : int
+  
   ' например: слушаю, смотрю, поддерживаю (перевод)
     visible_name : int
   ' выкл/вкл 
@@ -122,7 +123,7 @@ package "БД" {
 ' ## Подписки пользователей по тегам ##
     entity "tags_subs" {
   ' id пользователя
-    id : int
+    user_id : int
   ' id тега
     tag_id : int
     --
@@ -134,18 +135,27 @@ package "БД" {
     competence : bool 
     }
 
+' ## Теги карточек ##
+    entity "tags_cards" {
+  ' id карточки
+    card_id : int
+  ' id тега
+    tag_id : int
+    --
+    }
 
 ' ## Карточки ##
     entity "cards" {
   ' id карточки
     id : int
+  ' id языка карточк
+    lang_id : int
     --
   ' контент в карточке
     content : json  
   ' тип карточки
     type : string
-  ' id языка карточк
-    lang_id : 
+  
     }
 
 ' ## Язык ##
@@ -172,18 +182,36 @@ package "БД" {
 "2-2" -d[hidden]-> "2-3"
 
 users -d[hidden]-> inters
-inters -d[hidden]-> tags_groups
+inters -d[hidden]-> cards
+cards -d[hidden]-> tags_groups
 tags_groups -d[hidden]-> tags
 tags -d[hidden]-> tags_subs
-tags_subs -d[hidden]-> cards
-cards -d[hidden]-> langs
+tags_subs -d[hidden]-> tags_cards
+
+tags_cards -d[hidden]-> langs
+
 
 inters::user_id -[#blue]-> users::id
+tags::tag_group -[#blue]-> tags_groups::id
+tags_cards::card_id -[#blue]-> cards::id
+tags_cards::tag_id -[#blue]-> tags::id
+tags_subs::tag_id -[#blue]-> tags::id
+cards::lang_id -[#blue]-> langs::id
+tags_subs::user_id -[#blue]-> users::id
+
 
 @enduml
+users -d[hidden]-> inters
+inters -d[hidden]-> cards
+cards -d[hidden]-> tags_groups
+tags_groups -d[hidden]-> tags
+tags -d[hidden]-> tags_subs
+tags_subs -d[hidden]-> tags_cards
+
+tags_cards -d[hidden]-> langs
 
 ## Сущности БД
-
+tags::tag_group -[#blue]-> tags_groups::id
 _Значения указываются в файлах переводах_
 
 **Пользователь**
