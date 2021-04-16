@@ -13,6 +13,5 @@ async def send_welcome(message: types.Message):
     msg = message.from_user
     await message.reply(f"Hello and welcome!\n{msg}")
 
-
 if __name__ == '__main__':
     executor.start_polling(dp)
