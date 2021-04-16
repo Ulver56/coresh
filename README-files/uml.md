@@ -85,13 +85,44 @@ package "БД" {
   ' id пользователя
     user_id : int
     --
-  ' рейтинг собеседника
+  ' рейтинг соседства
     rating : int
+  ' количество показов карточки за спринт. если меньше 1 - это вероятность
+    number_cards : float
   ' является другом
     friend : bool
   ' забанен
     ban : bool
   }
+
+
+' ## Карточки ##
+    entity "cards" {
+  ' id карточки
+    id : int
+  ' id языка карточк
+    lang_id : int
+    --
+  ' контент в карточке
+    content : json  
+  ' тип карточки
+    type : string
+  
+    }
+
+' ## Спринты ##
+    entity "sprints" {
+  ' id спринта
+    id : int
+  ' id пользователя
+    user_id : int
+    --
+  ' Содержимое спринта
+    content : json  
+  ' Пройден/ не пройден
+    type : bool
+  
+    }
 
 ' ## Группа тегов
   entity "tags_groups" {
@@ -144,20 +175,6 @@ package "БД" {
     --
     }
 
-' ## Карточки ##
-    entity "cards" {
-  ' id карточки
-    id : int
-  ' id языка карточк
-    lang_id : int
-    --
-  ' контент в карточке
-    content : json  
-  ' тип карточки
-    type : string
-  
-    }
-
 ' ## Язык ##
     entity "langs" {
   ' id языка
@@ -183,11 +200,11 @@ package "БД" {
 
 users -d[hidden]-> inters
 inters -d[hidden]-> cards
-cards -d[hidden]-> tags_groups
+cards -d[hidden]-> sprints
+sprints -d[hidden]-> tags_groups
 tags_groups -d[hidden]-> tags
 tags -d[hidden]-> tags_subs
 tags_subs -d[hidden]-> tags_cards
-
 tags_cards -d[hidden]-> langs
 
 
@@ -198,7 +215,7 @@ tags_cards::tag_id -[#blue]-> tags::id
 tags_subs::tag_id -[#blue]-> tags::id
 cards::lang_id -[#blue]-> langs::id
 tags_subs::user_id -[#blue]-> users::id
-
+sprints::user_id -[#blue]-> users::id
 
 @enduml
 users -d[hidden]-> inters

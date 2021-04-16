@@ -6,6 +6,7 @@ import telebot
 print (settings.tg_token)
 
 
+
 #bot = telebot.TeleBot(settings.tg_token)
 
 #@bot.message_handler(content_types=['text'])
