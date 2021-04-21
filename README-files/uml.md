@@ -69,8 +69,12 @@ package "БД" {
     tg_username : string
   ' общий рейтинг 
     overall_rating : int
-  ' Текущий шаг и подшаг спринта.
-    step : float
+  ' Позиция сприрта - группа.
+    position_group : int
+  ' Позиция спринта - шаг.
+    position_step : int
+  ' Позиция сприрта - повторение.
+    position_repeat : int
   ' количество пройденных спринтов
     number_sprints : int
   ' количество сбросов аккаунта
@@ -78,6 +82,7 @@ package "БД" {
   ' забанен
     ban : bool
   }
+
 
 ' ## Cобеседник ##
     entity "inters" {
