@@ -59,6 +59,7 @@ package "БД" {
 
 ' ## Пользователь ##
     entity "users" {
+  
   ' id пользователя
     id : int
     --
@@ -68,8 +69,8 @@ package "БД" {
     tg_username : string
   ' общий рейтинг 
     overall_rating : int
-  '  последний пройденный спринт
-    last_sprint : string
+  ' Текущий шаг и подшаг спринта.
+    step : float
   ' количество пройденных спринтов
     number_sprints : int
   ' количество сбросов аккаунта
