@@ -1,6 +1,6 @@
 <mxfile>
     <diagram id="8jtwp23gU4bW0mw1dv8f" name="Page-1">
-        <mxGraphModel dx="-111" dy="410" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="723" dy="1338" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -244,7 +244,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="mMOoAf3u5umtuAadbSAm" name="Privet">
-        <mxGraphModel dx="1353" dy="1927" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="2KkATuwurSIrN1-nt9m6-0"/>
                 <mxCell id="2KkATuwurSIrN1-nt9m6-1" parent="2KkATuwurSIrN1-nt9m6-0"/>
