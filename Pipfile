@@ -4,11 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-asgiref = "==3.3.4"
-Django = "==3.2"
-pytz = "==2021.1"
-sqlparse = "==0.4.1"
-aiogram = "*"
+aiogram = ">=2.12.1"
+flask = "*"
+flask-admin = "*"
+sqlalchemy = "*"
 
 [dev-packages]
 
